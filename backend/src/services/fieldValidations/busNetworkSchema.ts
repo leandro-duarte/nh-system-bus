@@ -2,6 +2,7 @@ import Joi from 'joi'
 
 export const busNetworkSchema = Joi.object({
     
+    id:Joi.number().integer().min(1),
     name:Joi.string().required().max(30),
     cnpj: Joi.string().required().max(14),
     adress:Joi.object({
