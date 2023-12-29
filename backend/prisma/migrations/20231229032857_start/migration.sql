@@ -62,6 +62,7 @@ CREATE TABLE `busNeworks` (
 CREATE TABLE `Company` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `name` TEXT NOT NULL,
+    `cnpj` VARCHAR(14) NOT NULL,
     `adress` JSON NOT NULL,
     `email` VARCHAR(191) NOT NULL,
     `phone` VARCHAR(20) NOT NULL,
@@ -69,6 +70,7 @@ CREATE TABLE `Company` (
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
 
+    UNIQUE INDEX `Company_cnpj_key`(`cnpj`),
     UNIQUE INDEX `Company_email_key`(`email`),
     UNIQUE INDEX `Company_phone_key`(`phone`),
     PRIMARY KEY (`id`)
@@ -93,8 +95,9 @@ CREATE TABLE `vehicles` (
 CREATE TABLE `busLines` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `code` INTEGER NOT NULL,
-    `timeStart` TIME NOT NULL,
-    `timeEnd` TIME NOT NULL,
+    `name` VARCHAR(191) NOT NULL,
+    `timeStart` VARCHAR(5) NOT NULL,
+    `timeEnd` VARCHAR(5) NOT NULL,
     `ridership` INTEGER NOT NULL,
     `vehicleId` INTEGER NOT NULL,
     `companyId` INTEGER NOT NULL,
