@@ -1,0 +1,16 @@
+{
+    "name":"",
+    "cnpj":"" ,
+    "adress":{
+        "street":"",
+        "number":0,
+        "complement":"",
+        "neighborhood":"",
+        "city":"",
+        "state":"",
+        "zipCode":0
+    },
+    "email":"",
+    "phone":"",
+    "agencyId":0
+}
