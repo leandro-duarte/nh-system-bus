@@ -11,7 +11,7 @@ import busNetworkValidator from '../middleware/busNetworkValidator'
 const busNetworkRouter = Router()
 
 busNetworkRouter.get('/busNetwork', getBusNetworkController)
-busNetworkRouter.get('/busNetwork', busNetworkValidator, getBusNetworkByFilterController)
+busNetworkRouter.get('/busNetwork/filter', getBusNetworkByFilterController)
 busNetworkRouter.post('/busNetwork', busNetworkValidator, registerBusNetworkController)
 busNetworkRouter.delete('/busNetwork/:id', deleteBusNetworkController)
 busNetworkRouter.put('/busNetwork/:id', busNetworkValidator, updateBusNetworkController)

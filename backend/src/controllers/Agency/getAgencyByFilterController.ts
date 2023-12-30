@@ -19,7 +19,11 @@ export async function getAgencyByFilterController(req: Request, res: Response) {
             where:filter
         })
 
-        res.status(201).json(agency)
+        if (!agency) {
+            return res.status(200).json({ message: 'Agency not found' })
+        }
+
+        return res.status(201).json(agency)
 
     } catch (error) {
 

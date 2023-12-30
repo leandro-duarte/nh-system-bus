@@ -11,7 +11,7 @@ import busLineValidator from '../middleware/busLineValidator'
 const busLineRouter = Router()
 
 busLineRouter.get('/busLine', getBusLineController)
-busLineRouter.get('/busLine', busLineValidator, getBusLineByFilterController)
+busLineRouter.get('/busLine/filter', getBusLineByFilterController)
 busLineRouter.post('/busLine', busLineValidator, registerBusLineController)
 busLineRouter.delete('/busLine/:id', deleteBusLineController)
 busLineRouter.put('/busLine/:id', busLineValidator, updateBusLineController)

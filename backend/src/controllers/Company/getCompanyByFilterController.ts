@@ -21,7 +21,11 @@ export async function getCompanyByFilterController(req: Request, res: Response) 
             where: filter
         })
 
-        res.status(201).json(company)
+        if (!company) {
+            return res.status(200).json({ message: 'Company bus not found' })
+        }
+
+        return res.status(201).json(company)
 
     } catch (error) {
 

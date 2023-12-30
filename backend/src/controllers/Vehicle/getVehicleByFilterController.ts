@@ -21,7 +21,11 @@ export async function getVehcleByFilterController(req: Request, res: Response) {
             where: filter
         })
 
-        res.status(201).json(vehicle)
+        if (!vehicle) {
+            return res.status(200).json({ message: 'Vehicle not found' })
+        }
+
+        return res.status(201).json(vehicle)
 
     } catch (error) {
 

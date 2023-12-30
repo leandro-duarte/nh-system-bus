@@ -8,9 +8,10 @@
         "neighborhood":"",
         "city":"",
         "state":"",
-        "zipCode":0
+        "zipCode":""
     },
     "email":"",
     "phone":"",
-    "agencyId":0
+    "agencyId":0,
+    "zoneId":0
 }

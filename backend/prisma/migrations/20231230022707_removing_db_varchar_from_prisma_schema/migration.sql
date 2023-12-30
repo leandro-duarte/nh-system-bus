@@ -1,0 +1,25 @@
+-- AlterTable
+ALTER TABLE `Company` MODIFY `cnpj` VARCHAR(191) NOT NULL,
+    MODIFY `phone` VARCHAR(191) NOT NULL;
+
+-- AlterTable
+ALTER TABLE `agency` MODIFY `cnpj` VARCHAR(191) NOT NULL,
+    MODIFY `phone` VARCHAR(191) NOT NULL;
+
+-- AlterTable
+ALTER TABLE `busLines` MODIFY `timeStart` VARCHAR(191) NOT NULL,
+    MODIFY `timeEnd` VARCHAR(191) NOT NULL;
+
+-- AlterTable
+ALTER TABLE `busNeworks` MODIFY `cnpj` VARCHAR(191) NOT NULL,
+    MODIFY `phone` VARCHAR(191) NOT NULL;
+
+-- AlterTable
+ALTER TABLE `users` MODIFY `cpf` VARCHAR(191) NOT NULL,
+    MODIFY `rg` VARCHAR(191) NOT NULL,
+    MODIFY `phone` VARCHAR(191) NOT NULL,
+    MODIFY `employeeId` VARCHAR(191) NOT NULL,
+    MODIFY `password` VARCHAR(191) NOT NULL;
+
+-- AlterTable
+ALTER TABLE `zones` MODIFY `code` VARCHAR(191) NOT NULL;

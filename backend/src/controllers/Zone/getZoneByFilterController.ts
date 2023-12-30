@@ -21,7 +21,11 @@ export async function getZoneByFilterController(req: Request, res: Response) {
             where: filter
         })
 
-        res.status(201).json(zone)
+        if (!zone) {
+            return res.status(200).json({ message: 'Zone not found' })
+        }
+
+        return res.status(201).json(zone)
 
     } catch (error) {
 

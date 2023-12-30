@@ -21,7 +21,11 @@ export async function getBusLineByFilterController(req: Request, res: Response) 
             where: filter
         })
 
-        res.status(201).json(busLine)
+        if (!busLine) {
+            return res.status(200).json({ message: 'Bus line not found' })
+        }
+
+        return res.status(201).json(busLine)
 
     } catch (error) {
 

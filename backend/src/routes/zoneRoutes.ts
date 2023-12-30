@@ -11,7 +11,7 @@ import zoneValidator from '../middleware/zoneValidator'
 const zoneRouter = Router()
 
 zoneRouter.get('/zone', getZoneController)
-zoneRouter.get('/zone', zoneValidator, getZoneByFilterController)
+zoneRouter.get('/zone/filter', getZoneByFilterController)
 zoneRouter.post('/zone', zoneValidator, registerZoneController)
 zoneRouter.delete('/zone/:id', deleteZoneController)
 zoneRouter.put('/zone/:id', zoneValidator, updateZoneController)

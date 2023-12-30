@@ -21,7 +21,11 @@ export async function getBusNetworkByFilterController(req: Request, res: Respons
             where: filter
         })
 
-        res.status(201).json(busNetwork)
+        if (!busNetwork) {
+            return res.status(200).json({ message: 'Consortium not found' })
+        }
+
+        return res.status(201).json(busNetwork)
 
     } catch (error) {
 

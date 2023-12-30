@@ -11,7 +11,7 @@ import vehicleValidator from '../middleware/vehicleValidator'
 const vehicleRouter = Router()
 
 vehicleRouter.get('/vehicle', getVehicleController)
-vehicleRouter.get('/vehicle', vehicleValidator, getVehcleByFilterController)
+vehicleRouter.get('/vehicle/filter', getVehcleByFilterController)
 vehicleRouter.post('/vehicle', vehicleValidator, registerVehicleController)
 vehicleRouter.delete('/vehicle/:id', deleteVehicleController)
 vehicleRouter.put('/vehicle/:id', vehicleValidator, updateVehicleController)

@@ -11,7 +11,7 @@ import companyValidator from '../middleware/companyValidator'
 const companyRouter = Router()
 
 companyRouter.get('/company', getCompanyController)
-companyRouter.get('/company', companyValidator, getCompanyByFilterController)
+companyRouter.get('/company/filter', getCompanyByFilterController)
 companyRouter.post('/company', companyValidator, registerCompanyController)
 companyRouter.delete('/company/:id', deleteCompanyController)
 companyRouter.put('/company/:id', companyValidator, updateCompanyController)
