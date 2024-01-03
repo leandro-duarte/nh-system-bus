@@ -14,7 +14,7 @@ export async function getCompanyByFilterController(req: Request, res: Response) 
         } else if (cnpj) {
             filter = { cnpj: String(cnpj) }
         } else {
-            res.status(400).json({ message: 'id or cnpj are requared' })
+            res.status(400).json({ message: 'id or cnpj are required' })
         }
 
         const company = await prisma.company.findUnique({
@@ -22,10 +22,10 @@ export async function getCompanyByFilterController(req: Request, res: Response) 
         })
 
         if (!company) {
-            return res.status(200).json({ message: 'Company bus not found' })
+            return res.status(404).json({ message: 'Company bus not found' })
         }
 
-        return res.status(201).json(company)
+        return res.status(200).json(company)
 
     } catch (error) {
 

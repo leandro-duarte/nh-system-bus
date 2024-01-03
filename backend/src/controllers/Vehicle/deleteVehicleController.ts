@@ -11,7 +11,7 @@ export async function deleteVehicleController(req: Request, res: Response) {
       }
     })
 
-    res.status(201).json(vehicle)
+    res.status(200).json(vehicle)
   } catch (error) {
     res.status(500).json({ message: "Request error", error })
   }

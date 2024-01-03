@@ -6,7 +6,7 @@ export async function getUserController(req:Request, res:Response) {
         
         const user = await prisma.user.findMany()
 
-        res.status(201).json(user)
+        res.status(200).json(user)
 
     } catch (error) {
         

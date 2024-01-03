@@ -11,7 +11,7 @@ export async function deleteAgencyController(req: Request, res: Response) {
       }
     })
 
-    res.status(201).json(agency)
+    res.status(200).json(agency)
   } catch (error) {
     res.status(500).json({ message: "Request error", error })
   }

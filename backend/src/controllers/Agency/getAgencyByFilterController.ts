@@ -12,7 +12,7 @@ export async function getAgencyByFilterController(req: Request, res: Response) {
         if(id) {
             filter = { id: Number(id) }
         } else {
-            res.status(400).json({message:'id is requared'})
+            res.status(400).json({message:'id is required'})
         }
 
         const agency = await prisma.agency.findUnique({
@@ -20,10 +20,10 @@ export async function getAgencyByFilterController(req: Request, res: Response) {
         })
 
         if (!agency) {
-            return res.status(200).json({ message: 'Agency not found' })
+            return res.status(404).json({ message: 'Agency not found' })
         }
 
-        return res.status(201).json(agency)
+        return res.status(200).json(agency)
 
     } catch (error) {
 

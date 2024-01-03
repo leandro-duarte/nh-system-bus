@@ -6,7 +6,7 @@ export async function getBusNetworkController(req:Request, res:Response) {
         
         const busNetwork = await prisma.busNetwork.findMany()
 
-        res.status(201).json(busNetwork)
+        res.status(200).json(busNetwork)
 
     } catch (error) {
         

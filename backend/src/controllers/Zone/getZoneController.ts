@@ -6,7 +6,7 @@ export async function getZoneController(req:Request, res:Response) {
         
         const agency = await prisma.zone.findMany()
 
-        res.status(201).json(agency)
+        res.status(200).json(agency)
 
     } catch (error) {
         

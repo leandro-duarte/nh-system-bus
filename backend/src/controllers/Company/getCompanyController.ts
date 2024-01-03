@@ -6,7 +6,7 @@ export async function getCompanyController(req:Request, res:Response) {
         
         const company = await prisma.company.findMany()
 
-        res.status(201).json(company)
+        res.status(200).json(company)
 
     } catch (error) {
         

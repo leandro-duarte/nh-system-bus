@@ -11,7 +11,7 @@ export async function deleteBusNetworkController(req: Request, res: Response) {
       }
     })
 
-    res.status(201).json(busNetwork)
+    res.status(200).json(busNetwork)
   } catch (error) {
     res.status(500).json({ message: "Request error", error })
   }

@@ -14,7 +14,7 @@ export async function getBusLineByFilterController(req: Request, res: Response) 
         } else if (code) {
             filter = { code: Number(code) }
         } else {
-            res.status(400).json({ message: 'id or code line are requared' })
+            res.status(400).json({ message: 'id or code line are required' })
         }
 
         const busLine = await prisma.busLine.findUnique({
@@ -22,10 +22,10 @@ export async function getBusLineByFilterController(req: Request, res: Response) 
         })
 
         if (!busLine) {
-            return res.status(200).json({ message: 'Bus line not found' })
+            return res.status(404).json({ message: 'Bus line not found' })
         }
 
-        return res.status(201).json(busLine)
+        return res.status(200).json(busLine)
 
     } catch (error) {
 

@@ -14,7 +14,7 @@ export async function getBusNetworkByFilterController(req: Request, res: Respons
         } else if (cnpj) {
             filter = { cnpj: String(cnpj) }
         } else {
-            res.status(400).json({ message: 'id or cnpj are requared' })
+            res.status(400).json({ message: 'id or cnpj are required' })
         }
 
         const busNetwork = await prisma.busNetwork.findUnique({
@@ -22,10 +22,10 @@ export async function getBusNetworkByFilterController(req: Request, res: Respons
         })
 
         if (!busNetwork) {
-            return res.status(200).json({ message: 'Consortium not found' })
+            return res.status(404).json({ message: 'Consortium not found' })
         }
 
-        return res.status(201).json(busNetwork)
+        return res.status(200).json(busNetwork)
 
     } catch (error) {
 

@@ -6,7 +6,7 @@ export async function getVehicleController(req:Request, res:Response) {
         
         const vehicle = await prisma.vehicle.findMany()
 
-        res.status(201).json(vehicle)
+        res.status(200).json(vehicle)
 
     } catch (error) {
         

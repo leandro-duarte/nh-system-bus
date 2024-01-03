@@ -14,7 +14,7 @@ export async function getVehcleByFilterController(req: Request, res: Response) {
         } else if (prefix) {
             filter = { prefix: String(prefix) }
         } else {
-            res.status(400).json({ message: 'id or prefix are requared' })
+            res.status(400).json({ message: 'id or prefix are required' })
         }
 
         const vehicle = await prisma.vehicle.findUnique({
@@ -22,10 +22,10 @@ export async function getVehcleByFilterController(req: Request, res: Response) {
         })
 
         if (!vehicle) {
-            return res.status(200).json({ message: 'Vehicle not found' })
+            return res.status(404).json({ message: 'Vehicle not found' })
         }
 
-        return res.status(201).json(vehicle)
+        return res.status(200).json(vehicle)
 
     } catch (error) {
 

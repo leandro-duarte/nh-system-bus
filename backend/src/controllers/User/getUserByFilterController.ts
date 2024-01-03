@@ -16,7 +16,7 @@ export async function getUserByFilterController(req: Request, res: Response) {
         } else if(employeeId) {
             filter = { employeeId: String(employeeId) }
         } else {
-            res.status(400).json({message:'id, username or employeedId are requared'})
+            res.status(400).json({message:'id, username or employeedId are required'})
         }
 
         const user = await prisma.user.findUnique({
@@ -24,10 +24,10 @@ export async function getUserByFilterController(req: Request, res: Response) {
         })
 
         if (!user) {
-            return res.status(200).json({ message: 'User not found' })
+            return res.status(404).json({ message: 'User not found' })
         }
 
-        return res.status(201).json(user)
+        return res.status(200).json(user)
 
     } catch (error) {
 

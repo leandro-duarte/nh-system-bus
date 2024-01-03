@@ -14,7 +14,7 @@ export async function getZoneByFilterController(req: Request, res: Response) {
         } else if (code) {
             filter = { code: String(code) }
         } else {
-            res.status(400).json({ message: 'id or code are requared' })
+            res.status(400).json({ message: 'id or code are required' })
         }
 
         const zone = await prisma.zone.findUnique({
@@ -22,10 +22,10 @@ export async function getZoneByFilterController(req: Request, res: Response) {
         })
 
         if (!zone) {
-            return res.status(200).json({ message: 'Zone not found' })
+            return res.status(404).json({ message: 'Zone not found' })
         }
 
-        return res.status(201).json(zone)
+        return res.status(200).json(zone)
 
     } catch (error) {
 

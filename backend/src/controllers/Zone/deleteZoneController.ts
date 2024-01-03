@@ -11,7 +11,7 @@ export async function deleteZoneController(req: Request, res: Response) {
       }
     })
 
-    res.status(201).json(zone)
+    res.status(200).json(zone)
   } catch (error) {
     res.status(500).json({ message: "Request error", error })
   }
