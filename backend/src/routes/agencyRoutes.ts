@@ -7,6 +7,7 @@ import { deleteAgencyController } from '../controllers/Agency/deleteAgencyContro
 import { updateAgencyController } from '../controllers/Agency/updateAgencyController'
 
 import agencyValidator from '../middleware/agencyValidator'
+import { userAuthenticate } from '../middleware/userAuthenticate'
 
 
 const agencyRouter = Router()
@@ -14,9 +15,12 @@ const agencyRouter = Router()
 
 agencyRouter.get('/agency', getAgencyController)
 agencyRouter.get('/agency/:id', getAgencyByFilterController)
+
+agencyRouter.use(userAuthenticate)
 agencyRouter.post('/agency', agencyValidator, registerAgencyController)
 agencyRouter.delete('/agency/:id', deleteAgencyController)
 agencyRouter.put('/agency/:id', agencyValidator, updateAgencyController)
+
 
 
 

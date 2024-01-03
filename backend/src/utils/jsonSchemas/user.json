@@ -1,0 +1,20 @@
+{
+    "name":"",
+    "username":"",
+    "cpf":"" ,
+    "rg":"" ,
+    "adress":{
+        "street":"",
+        "number":0,
+        "complement":"",
+        "neighborhood":"",
+        "city":"",
+        "state":"",
+        "zipCode":""
+    },
+    "email":"",
+    "phone":"",
+    "cellPhone":"",
+    "employeeId":"",
+    "password":""
+}

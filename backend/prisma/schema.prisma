@@ -10,13 +10,15 @@ datasource db {
 model User {
   id         Int      @id @default(autoincrement())
   name       String   @db.Text
-  cpf        String   @unique 
-  rg         String   @unique 
+  username   String   @unique
+  cpf        String   @unique
+  rg         String   @unique
   adress     Json
   email      String   @unique
-  phone      String   @unique 
-  employeeId String   @unique 
-  password   String   @unique 
+  phone      String   @unique
+  cellPhone  String   @unique
+  employeeId String   @unique
+  password   String   @unique
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 
@@ -26,10 +28,10 @@ model User {
 model Agency {
   id     Int    @id @default(autoincrement())
   name   String @db.Text
-  cnpj   String @unique 
+  cnpj   String @unique
   adress Json
   email  String @unique
-  phone  String @unique 
+  phone  String @unique
 
   busNetworks BusNetwork[]
 
@@ -42,10 +44,10 @@ model Agency {
 model BusNetwork {
   id     Int    @id @default(autoincrement())
   name   String @db.Text
-  cnpj   String @unique 
+  cnpj   String @unique
   adress Json
   email  String @unique
-  phone  String @unique 
+  phone  String @unique
 
   companies Company[]
 
@@ -64,10 +66,10 @@ model BusNetwork {
 model Company {
   id     Int    @id @default(autoincrement())
   name   String @db.Text
-  cnpj   String @unique 
+  cnpj   String @unique
   adress Json
   email  String @unique
-  phone  String @unique 
+  phone  String @unique
 
   vehicles Vehicle[]
   busLines BusLine[]
@@ -100,10 +102,10 @@ model Vehicle {
 
 model BusLine {
   id        Int    @id @default(autoincrement())
-  code      Int @unique
+  code      Int    @unique
   name      String
-  timeStart String 
-  timeEnd   String 
+  timeStart String
+  timeEnd   String
   ridership Int
 
   vehicleId Int     @unique
@@ -121,7 +123,7 @@ model BusLine {
 model Zone {
   id   Int    @id @default(autoincrement())
   name String
-  code String @unique 
+  code String @unique
 
   busNetwork BusNetwork?
 

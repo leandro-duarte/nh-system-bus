@@ -7,11 +7,14 @@ import { deleteBusLineController } from '../controllers/BusLine/deleteBusLineCon
 import { updateBusLineController } from '../controllers/BusLine/updateBusLineController'
 
 import busLineValidator from '../middleware/busLineValidator'
+import { userAuthenticate } from '../middleware/userAuthenticate'
 
 const busLineRouter = Router()
 
 busLineRouter.get('/busLine', getBusLineController)
 busLineRouter.get('/busLine/filter', getBusLineByFilterController)
+
+busLineRouter.use(userAuthenticate)
 busLineRouter.post('/busLine', busLineValidator, registerBusLineController)
 busLineRouter.delete('/busLine/:id', deleteBusLineController)
 busLineRouter.put('/busLine/:id', busLineValidator, updateBusLineController)

@@ -7,6 +7,9 @@ import zoneRouter from './routes/zoneRoutes'
 import companyRouter from './routes/companyRoutes'
 import vehicleRouter from './routes/vehicleRoutes'
 import busLineRouter from './routes/busLineRoutes'
+import userRouter from './routes/userRoutes'
+import loginRouter from './routes/loginRoutes'
+
 
 server.use(json())
 
@@ -16,7 +19,9 @@ server.use(
     zoneRouter, 
     companyRouter,
     vehicleRouter,
-    busLineRouter
+    busLineRouter,
+    userRouter,
+    loginRouter
 )
 
 server.listen(port, () => console.log(`Server is running on port:${port}`))

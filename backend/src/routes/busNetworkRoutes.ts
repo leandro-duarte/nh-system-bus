@@ -7,11 +7,15 @@ import { deleteBusNetworkController } from '../controllers/BusNetwork/deleteBusN
 import { updateBusNetworkController } from '../controllers/BusNetwork/updateBusNetworkController'
 
 import busNetworkValidator from '../middleware/busNetworkValidator'
+import busLineRouter from './busLineRoutes'
+import { userAuthenticate } from '../middleware/userAuthenticate'
 
 const busNetworkRouter = Router()
 
 busNetworkRouter.get('/busNetwork', getBusNetworkController)
 busNetworkRouter.get('/busNetwork/filter', getBusNetworkByFilterController)
+
+busLineRouter.use(userAuthenticate)
 busNetworkRouter.post('/busNetwork', busNetworkValidator, registerBusNetworkController)
 busNetworkRouter.delete('/busNetwork/:id', deleteBusNetworkController)
 busNetworkRouter.put('/busNetwork/:id', busNetworkValidator, updateBusNetworkController)
