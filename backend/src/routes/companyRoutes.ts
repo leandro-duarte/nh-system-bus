@@ -14,10 +14,9 @@ const companyRouter = Router()
 companyRouter.get('/company', getCompanyController)
 companyRouter.get('/company/filter', getCompanyByFilterController)
 
-companyRouter.use(userAuthenticate)
-companyRouter.post('/company', companyValidator, registerCompanyController)
-companyRouter.delete('/company/:id', deleteCompanyController)
-companyRouter.put('/company/:id', companyValidator, updateCompanyController)
+companyRouter.post('/company', userAuthenticate, companyValidator, registerCompanyController)
+companyRouter.delete('/company/:id', userAuthenticate, deleteCompanyController)
+companyRouter.put('/company/:id', userAuthenticate, companyValidator, updateCompanyController)
 
 
 export default companyRouter

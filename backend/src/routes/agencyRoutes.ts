@@ -16,10 +16,9 @@ const agencyRouter = Router()
 agencyRouter.get('/agency', getAgencyController)
 agencyRouter.get('/agency/:id', getAgencyByFilterController)
 
-agencyRouter.use(userAuthenticate)
-agencyRouter.post('/agency', agencyValidator, registerAgencyController)
-agencyRouter.delete('/agency/:id', deleteAgencyController)
-agencyRouter.put('/agency/:id', agencyValidator, updateAgencyController)
+agencyRouter.post('/agency', userAuthenticate, agencyValidator, registerAgencyController)
+agencyRouter.delete('/agency/:id', userAuthenticate, deleteAgencyController)
+agencyRouter.put('/agency/:id', userAuthenticate, agencyValidator, updateAgencyController)
 
 
 

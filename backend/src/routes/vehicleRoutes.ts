@@ -14,10 +14,9 @@ const vehicleRouter = Router()
 vehicleRouter.get('/vehicle', getVehicleController)
 vehicleRouter.get('/vehicle/filter', getVehcleByFilterController)
 
-vehicleRouter.use(userAuthenticate)
-vehicleRouter.post('/vehicle', vehicleValidator, registerVehicleController)
-vehicleRouter.delete('/vehicle/:id', deleteVehicleController)
-vehicleRouter.put('/vehicle/:id', vehicleValidator, updateVehicleController)
+vehicleRouter.post('/vehicle', userAuthenticate, vehicleValidator, registerVehicleController)
+vehicleRouter.delete('/vehicle/:id', userAuthenticate, deleteVehicleController)
+vehicleRouter.put('/vehicle/:id', userAuthenticate, vehicleValidator, updateVehicleController)
 
 
 export default vehicleRouter

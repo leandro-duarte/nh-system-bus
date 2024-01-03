@@ -14,9 +14,8 @@ const busLineRouter = Router()
 busLineRouter.get('/busLine', getBusLineController)
 busLineRouter.get('/busLine/filter', getBusLineByFilterController)
 
-busLineRouter.use(userAuthenticate)
-busLineRouter.post('/busLine', busLineValidator, registerBusLineController)
-busLineRouter.delete('/busLine/:id', deleteBusLineController)
-busLineRouter.put('/busLine/:id', busLineValidator, updateBusLineController)
+busLineRouter.post('/busLine', userAuthenticate, busLineValidator, registerBusLineController)
+busLineRouter.delete('/busLine/:id', userAuthenticate, deleteBusLineController)
+busLineRouter.put('/busLine/:id', userAuthenticate, busLineValidator, updateBusLineController)
 
 export default busLineRouter

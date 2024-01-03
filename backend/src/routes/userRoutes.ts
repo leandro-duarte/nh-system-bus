@@ -14,9 +14,8 @@ const userRouter = Router()
 userRouter.get('/user', getUserController)
 userRouter.get('/user/filter', getUserByFilterController)
 
-userRouter.use(userAuthenticate)
-userRouter.post('/user', userValidator, registerUserController)
-userRouter.delete('/user/:id', deleteUserController)
-userRouter.put('/user/:id', userValidator, updateUserController)
+userRouter.post('/user', userAuthenticate, userValidator, registerUserController)
+userRouter.delete('/user/:id', userAuthenticate, deleteUserController)
+userRouter.put('/user/:id', userAuthenticate, userValidator, updateUserController)
 
 export default userRouter
