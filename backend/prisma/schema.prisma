@@ -15,7 +15,7 @@ model User {
   rg         String   @unique
   adress     Json
   email      String   @unique
-  phone      String   @unique
+  phone      String   
   cellPhone  String   @unique
   employeeId String   @unique
   password   String   @unique
