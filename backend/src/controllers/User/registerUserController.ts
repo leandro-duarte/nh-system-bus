@@ -1,16 +1,19 @@
 import { Request, Response } from 'express'
 import prisma from '../../config/prismaClient'
-import * as bcrypt from 'bcrypt'
+import * as bcrypt from 'bcrypt' 
+import { UserProps } from '../../interfaces/User'
 
 export async function registerUserController(req:Request, res:Response) {
     try {
         
-        const { name, username, cpf, rg, adress, email, phone, cellPhone, employeeId, password } = req.body
+        const User:UserProps = req.body
+        //const { name, username, cpf, rg, adress, email, phone, cellPhone, employeeId, password } = req.body
 
-        const cryptPassword = await bcrypt.hash(password, 10)
+        const cryptPassword = await bcrypt.hash(User.password, 10)
         
         const newUser = await prisma.user.create({
-            data:{
+            data: User
+            /*data:{
                 name,
                 username,
                 cpf,
@@ -21,7 +24,7 @@ export async function registerUserController(req:Request, res:Response) {
                 cellPhone,
                 employeeId,
                 password:String(cryptPassword)
-            }
+            }*/
         })
 
         res.status(201).json(newUser)

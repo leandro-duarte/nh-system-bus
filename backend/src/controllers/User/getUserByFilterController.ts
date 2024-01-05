@@ -1,10 +1,12 @@
 import { Request, Response } from 'express'
 import prisma from '../../config/prismaClient'
 import { Prisma } from '@prisma/client'
+import { UserProps } from '../../interfaces/User'
 
 export async function getUserByFilterController(req: Request, res: Response) {
     try {
 
+        
         const { id, username, employeeId } = req.query
 
         let filter = <Prisma.UserWhereUniqueInput>{}
