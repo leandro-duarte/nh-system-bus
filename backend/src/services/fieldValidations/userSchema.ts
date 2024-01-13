@@ -2,7 +2,6 @@ import Joi from 'joi'
 
 export const userSchema = Joi.object({
     
-    id:Joi.number().integer().min(1),
     name:Joi.string().required().max(255),
     username:Joi.string().required().max(15),
     cpf: Joi.string().required().pattern(/^[0-9]+$/).max(11),
