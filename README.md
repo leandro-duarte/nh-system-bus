@@ -10,7 +10,6 @@
 Javascript with Nodejs and Typescript
 
 <b>Database:</b>
-Mysql
-AWS (RDS)
+Mysql Docker container
 
 
